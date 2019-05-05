@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="index.css" />
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Petit+Formal+Script" rel="stylesheet">
+   
+    <title>Vote for your Menu</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <!-- <div id= "app">
+        <img alt="" 
+        :src="backImage"
+        style="height:500px"/>  -->
+        <div id="app">
+         <div class= "background" :style="{ 'background-image': 'url(' + backgroundImage + ')' }">
+        <h1 v-bind:style="[titleMenu]">{{ title }}</h1>
+        <h1 v-bind:style="[subTitleMenu]">{{ message }}</h1>
+        <div>
+          <button v-on:click="toggleShow()" v-bind:style="[button]"> Show menu</button>
+          <h1 v-bind:style="[courses]">Main Courses:</h1>
+          <ul v-bind:style="[menus]" v-if="showMenu">
+            <li v-for="menu in menu">
+              <strong>{{ menu.name }}</strong>
+              <br></br>
+              <small>Ingredients: {{ menu.ingredients }}</small> 
+              <br></br>
+              <small>Price: {{ menu.price  }}</small>
+              <br></br> 
+              <small>{{ menu.votes }} votes</small>
+              <button v-on:click="addVote(menu)" v-bind:style="[button]">Vote!</button>
+              <button v-if="menu.votes > 0" v-on:click="removeVote(menu)" v-bind:style="[button]">
+                Remove Vote!
+              </button>
+              <button v-on:click="deletemenu(menu)" v-bind:style="[button]">Delete menu</button>
+            </li>
+          </ul>
+            <h1 v-bind:style="[courses]">Dessert:</h1>
+            <ul v-bind:style="[menus]" v-if="showMenu">
+            <li v-for="desserts in desserts">
+                <strong>{{ desserts.name }}</strong>
+                <br></br>
+                <small>Ingredients: {{ desserts.ingredients }}</small> 
+                <br></br>
+                <small>Price: {{ desserts.price  }}</small>
+                <br></br> 
+                <small>{{ desserts.votes }} votes</small>
+                <button v-on:click="addVote(desserts)" v-bind:style="[button]">Vote!</button>
+                <button v-if="desserts.votes > 0" v-on:click="removeVote(desserts)" v-bind:style="[button]">
+                  Remove Vote!
+                </button>
+                <button v-on:click="deletedesserts(desserts)" v-bind:style="[button]">Delete desserts</button>
+              </li>
+            <hr>
+            <div v-bind:style="[newMenu]">Your menu's suggestion:</div>
+            <div v-bind:style="[newDish]">
+            <label for="menu">Name:</label>
+            <input  type="text" name="menu" v-model="newName" />
+            </div>
+            <div v-bind:style="[newDish]">
+            <label for="menu">Ingredients:</label>
+            <input type="text" name="ingredients" v-model="newIngredients" />
+            <button v-on:click="addDish(newName, newIngredients)" v-bind:style="[button]">Add dish</button>
+            </div>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+      <script src="./index.js"></script>
+    </body>
+    </html> 

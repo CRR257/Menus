@@ -1,0 +1,28 @@
+
+.background{
+    /* height: 37rem; */
+    opacity: 0.9;
+}
+
+li {
+    list-style-type: none;
+    border: 0.1rem solid #eae8e8;
+    padding: 2rem;
+    margin: 1.5rem 1rem 1.5rem 0rem;
+}
+
+hr{
+    border: 0.15rem solid black;
+    margin-top: 3rem;
+    width: 10rem;
+}
+
+button{
+    padding: '0.4rem';
+    border-radius: '0.3rem';
+    background-color: 'rgb(154; 23; 23)';
+    border: 'solid #191818 0.07rem';
+    color: 'white';
+    margin-left: '3rem';
+    font-family: 'Titillium Web';
+  }
